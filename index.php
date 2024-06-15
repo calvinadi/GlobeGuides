@@ -39,6 +39,69 @@
 
 <!-- header section end -->
 
+<!-- home section start -->
+
+
+<!-- home section end -->
+
+<!-- services section start -->
+
+<section class="services">
+
+    <h1 class="heading-title">our services</h1>
+
+    <div class="box-container">
+        <div class="box">
+            <img src="images/destinasi-icon.jpg" alt="Destination" class="service-icon">
+            <h3>Destinasi Terpopuler</h3>
+        </div>
+
+        <div class="box">
+            <img src="images/akomodasi-icon.jpg" alt="Akomodasi" class="service-icon">
+            <h3>Pencarian dan Pemilihan Akomodasi</h3>
+        </div>
+
+        <div class="box">
+            <img src="images/wisata-icon.jpg" alt="Attraction" class="service-icon">
+            <h3>Atraksi Wisata</h3>
+        </div>
+
+        <div class="box">
+            <img src="images/tour-guide-icon.jpg" alt="Tour Guide" class="service-icon">
+            <h3>Tur Guide Langsung</h3>
+        </div>
+
+        <div class="box">
+            <img src="images/rekomendasi-icon.jpg" alt="Recommendation" class="service-icon">
+            <h3>Rekomendasi Kustom</h3>
+        </div>
+
+        <div class="box">
+            <img src="images/review-icon.jpg" alt="Review" class="service-icon">
+            <h3>Ulasan dan Rating</h3>
+        </div>
+
+        <div class="box">
+            <img src="images/pemesanan-icon.jpg" alt="Order" class="service-icon">
+            <h3>Pemesanan Online</h3>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- services section end -->
+
+
+
+
+
+
+
+
+
+
+
     
 <!--footer section start -->
 
@@ -73,10 +136,10 @@
 
         <div class="box">
             <h3>follow us</h3>
-            <a href="#"><i class="fas fa-facebook-f"></i> Facebook</a>
-            <a href="#"><i class="fas fa-twitter-f"></i> Twitter</a>
-            <a href="#"><i class="fas fa-instagram-f"></i> Instagram</a>
-            <a href="#"><i class="fas fa-linkedin-f"></i> Linkedin</a>
+            <a href="#"><i class="fab fa-facebook-f"></i> facebook</a>
+            <a href="#"><i class="fab fa-twitter"></i> twitter</a>
+            <a href="#"><i class="fab fa-instagram"></i> instagram</a>
+            <a href="#"><i class="fab fa-linkedin-in"></i> linkedin</a>
         </div>
 
 <!--footer section end -->
