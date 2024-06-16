@@ -29,7 +29,7 @@
         <a href="services.php">services</a>
         <a href="book.php">book</a>
         <a href="contact.php">contact</a>
-        <a href="login.php">login</a>
+        <a href="#" id="login-link">login</a>
         <a href="signup.php">signup</a>
     </nav>
 
@@ -194,11 +194,44 @@
 
 <!-- home offer section start -->
 
+<section class="home-offer">
+    <div class="content">
+        <h3>up to 50% off for new customers</h3>
+        <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, tempore voluptatem laboriosam illo ullam ipsam sint possimus? Minima autem similique sint necessitatibus, quod quia! Recusandae corrupti ullam in totam quisquam?</p>
+        <a href="book.php" class="btn">book now</a>
+    </div>
+</section>
 
+<!-- home offer section end -->
 
+<!-- login popup -->
+<div id="login-popup" class="login-popup">
+    <span class="close-btn">&times;</span>
+    <h2>Login</h2>
+    <form id="login-form">
+        <input type="text" name="username" placeholder="Username" required autocomplete="username">
+        <input type="password" name="password" placeholder="Password" required autocomplete="current-password">
+        <input type="submit" value="Login">
+    </form>
+    <p id="login-error" style="color:red;"></p>
+    <p id="signup-link">Not registered yet? <a href="#" id="signup-btn">Signup here</a></p>
+</div>
 
-<!-- home offer section start -->
+<!-- signup popup -->
+<div id="signup-popup" class="signup-popup">
+    <span class="close-btn">&times;</span>
+    <h2>Signup</h2>
+    <form id="signup-form">
+        <input type="text" name="fullname" placeholder="Full Name" required autocomplete="on">
+        <input type="email" name="email" placeholder="Email" required autocomplete="on">
+        <input type="text" name="username" placeholder="Username" required autocomplete="on">
+        <input type="password" name="password" placeholder="Password" required autocomplete="on">
+        <input type="submit" value="Signup">
+    </form>
+</div>
 
+<!-- Overlay -->
+<div id="overlay" class="overlay"></div>
 
     
 <!--footer section start -->

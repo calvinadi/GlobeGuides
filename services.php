@@ -24,7 +24,7 @@
     <a href="home.php" class="logo">GlobeGuides</a>
     
     <nav class="navbar">
-        <a href="home.php">home</a>
+        <a href="index.php">home</a>
         <a href="about.php">about</a>
         <a href="services.php">services</a>
         <a href="book.php">book</a>
@@ -43,6 +43,110 @@
     <h1>Services</h1>
 </div>
 
+<!-- package section start  -->
+
+<section class="packages">
+    <h1 class="heading-title">top destination</h1>
+    <div class="box-container">
+        <div class="box">
+            <div class="image">
+                <img src="images/package-1.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>adventure & tour</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam consectetur libero veritatis, numquam doloremque voluptas repellendus natus quod excepturi totam!</p>
+                <a href="book.php" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/package-2.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>package2</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam consectetur libero veritatis, numquam doloremque voluptas repellendus natus quod excepturi totam!</p>
+                <a href="book.php" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/package-3.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>package3</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam consectetur libero veritatis, numquam doloremque voluptas repellendus natus quod excepturi totam!</p>
+                <a href="book.php" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/package-4.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>package4</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam consectetur libero veritatis, numquam doloremque voluptas repellendus natus quod excepturi totam!</p>
+                <a href="book.php" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/package-5.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>package5</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam consectetur libero veritatis, numquam doloremque voluptas repellendus natus quod excepturi totam!</p>
+                <a href="book.php" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/package-6.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>package6</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam consectetur libero veritatis, numquam doloremque voluptas repellendus natus quod excepturi totam!</p>
+                <a href="book.php" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/package-7.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>package7</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam consectetur libero veritatis, numquam doloremque voluptas repellendus natus quod excepturi totam!</p>
+                <a href="book.php" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/package-8.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>package8</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam consectetur libero veritatis, numquam doloremque voluptas repellendus natus quod excepturi totam!</p>
+                <a href="book.php" class="btn">book now</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="load-more">
+        <span class="btn">load more</span>
+    </div>
+</section>
+
+
+<!-- package section end  -->
+
+
 
 
     
@@ -53,7 +157,7 @@
         
         <div class="box">
             <h3>quick links</h3>
-            <a href="home.php"><i class="fas fa-angle-right"></i> home</a>
+            <a href="index.php"><i class="fas fa-angle-right"></i> home</a>
             <a href="about.php"><i class="fas fa-angle-right"></i>about</a>
             <a href="services.php"><i class="fas fa-angle-right"></i>services</a>
             <a href="book.php"><i class="fas fa-angle-right"></i>book</a>
@@ -92,6 +196,9 @@
 
 <!-- custom js file link-->
 <script src="js/script.js"></script>
+
+<!-- Swiper JS slider-->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </body>
 
