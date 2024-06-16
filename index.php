@@ -41,10 +41,39 @@
 
 <!-- home section start -->
 
+<section class="home">
+    <div class="swiper home-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide" style="background:url(images/home-slide-1.jpg) no-repeat">
+                <div class="content">
+                    <span>explore, discover, travel</span>
+                    <h3>travel around the world</h3>
+                    <a href="package.php" class="btn">discover more</a>
+                </div>
+            </div>
 
+            <div class="swiper-slide slide" style="background:url(images/home-slide-2.jpg) no-repeat">
+                <div class="content">
+                    <span>explore, discover, travel</span>
+                    <h3>discover the new place</h3>
+                    <a href="package.php" class="btn">discover more</a>
+                </div>
+            </div>
 
+            <div class="swiper-slide slide" style="background:url(images/home-slide-3.jpg) no-repeat">
+                <div class="content">
+                    <span>explore, discover, travel</span>
+                    <h3>make your tour worth</h3>
+                    <a href="package.php" class="btn">discover more</a>
+                </div>
+            </div>
 
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
 
+</section>
 
 <!-- home section end -->
 
@@ -62,7 +91,7 @@
 
         <div class="box">
             <img src="images/akomodasi-icon.jpg" alt="Akomodasi" class="service-icon">
-            <h3>Pencarian dan Pemilihan Akomodasi</h3>
+            <h3>Akomodasi</h3>
         </div>
 
         <div class="box">
@@ -96,14 +125,79 @@
 
 <!-- services section end -->
 
+<!-- home about section start -->
+
+<section class="home-about">
+    <div class="image">
+        <img src="images/about-img.jpg" alt="">
+    </div>
+
+    <div class="content">
+        <h3>about us</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Odit sapiente accusamus atque! Maxime animi, 
+            debitis perspiciatis minus beatae dicta repellat tempora dolorem dolor at, 
+            libero quam sequi repellendus recusandae aut.
+        </p>
+        <a href="about.php" class="btn">read more</a>
+    </div>
+
+</section>
+
+<!-- home about section end -->
+
+<!-- home booking section start -->
+
+<section class="home-book">
+    <h1 class="heading-title">some of our packages</h1>
+
+    <div class="box-container">
+        <div class="box">
+            <div class="image">
+                <img src="images/booking-1.jpg" alt=""> 
+            </div>
+            <div class="content">
+                <h3>adventure & tour</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <a href="book.php" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/booking-2.jpg" alt=""> 
+            </div>
+            <div class="content">
+                <h3>adventure & tour</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <a href="book.php" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/booking-3.jpg" alt=""> 
+            </div>
+            <div class="content">
+                <h3>adventure & tour</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <a href="book.php" class="btn">book now</a>
+            </div>
+        </div>
+
+    </div>
+
+
+</section>
+
+<!-- home booking section end -->
+
+<!-- home offer section start -->
 
 
 
 
-
-
-
-
+<!-- home offer section start -->
 
 
     
