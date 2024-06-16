@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const loginForm = document.getElementById('login-form');
     const signupForm = document.getElementById('signup-form');
     const loginError = document.getElementById('login-error');
-    const closeBtn = document.querySelector('.close-btn');
+    const closeBtns = document.querySelectorAll('.close-btn');
     const loginLink = document.getElementById('login-link');
     const signupLink = document.getElementById('signup-link'); // Update: added signup link
     const signupBtn = document.getElementById('signup-btn'); // Update: added signup button inside login popup
@@ -103,9 +103,11 @@ document.addEventListener("DOMContentLoaded", function() {
         showSignupPopup(); // Show signup popup
     });
 
-    // Event listener for close button
-    closeBtn.addEventListener('click', function() {
-        closePopup();
+    // Event listeners for close buttons
+    closeBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            closePopup();
+        });
     });
 
     // Event listener for login form submission

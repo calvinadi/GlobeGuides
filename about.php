@@ -21,7 +21,7 @@
 <!-- header section start -->
 
 <section class="header">
-    <a href="home.php" class="logo">GlobeGuides</a>
+    <a href="index.php" class="logo">GlobeGuides</a>
     
     <nav class="navbar">
         <a href="index.php">home</a>

@@ -521,6 +521,7 @@ section{
 }
 
 #signup-popup input[type="text"],
+#signup-popup input[type="email"],
 #signup-popup input[type="password"] {
     margin-bottom: 15px;
     padding: 10px;
@@ -541,13 +542,6 @@ section{
     background-color: #218838; /* Darker shade of green */
 }
 
-.signup-popup .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 20px;
-}
 
 /* Overlay */
 .overlay {
