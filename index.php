@@ -30,7 +30,6 @@
         <a href="book.php">book</a>
         <a href="contact.php">contact</a>
         <a href="#" id="login-link">login</a>
-        <a href="signup.php">signup</a>
     </nav>
 
     <div id="menu-btn" class="fas fa-bars"></div>
@@ -246,10 +245,10 @@
             <a href="services.php"><i class="fas fa-angle-right"></i>services</a>
             <a href="book.php"><i class="fas fa-angle-right"></i>book</a>
             <a href="contact.php"><i class="fas fa-angle-right"></i>contact</a>
-            <a href="login.php"><i class="fas fa-angle-right"></i>login</a>
-            <a href="signup.php"><i class="fas fa-angle-right"></i>signup</a>
+            <a href="#" id="login-link"><i class="fas fa-angle-right"></i>login</a>
         </div>
 
+        
         <div class="box">
             <h3>extra links</h3>
             <a href="#"><i class="fas fa-angle-right"></i> ask questions</a>
