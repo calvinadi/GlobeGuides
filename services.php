@@ -28,7 +28,6 @@
         <a href="about.php">about</a>
         <a href="services.php">services</a>
         <a href="book.php">book</a>
-        <a href="contact.php">contact</a>
         <a href="#" id="login-link">login</a>
     </nav>
 
@@ -186,8 +185,6 @@
             <a href="about.php"><i class="fas fa-angle-right"></i>about</a>
             <a href="services.php"><i class="fas fa-angle-right"></i>services</a>
             <a href="book.php"><i class="fas fa-angle-right"></i>book</a>
-            <a href="contact.php"><i class="fas fa-angle-right"></i>contact</a>
-            <a href="#" id="login-link"><i class="fas fa-angle-right"></i>login</a>
         </div>
 
         <div class="box">
