@@ -147,7 +147,7 @@
 <!-- home booking section start -->
 
 <section class="home-book">
-    <h1 class="heading-title">some of our packages</h1>
+    <h1 class="heading-title">top packages right now</h1>
 
     <div class="box-container">
         <div class="box">
