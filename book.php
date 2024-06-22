@@ -69,8 +69,19 @@
             </div>
 
             <div class="inputBox">
-                <span>where to :</span>
-                <input type="text" placeholder="place you want to visit" name="location">
+                <span>location & price :</span>
+                <div class="location-price">
+                    <select name="location" id="location" onchange="updatePrice()">
+                        <option value="Place 1" data-price="1000000">Place 1 - Rp 1,000,000</option>
+                        <option value="Place 2" data-price="2000000">Place 2 - Rp 2,000,000</option>
+                        <option value="Place 3" data-price="3000000">Place 3 - Rp 3,000,000</option>
+                        <option value="Place 4" data-price="4000000">Place 4 - Rp 4,000,000</option>
+                        <option value="Place 5" data-price="5000000">Place 5 - Rp 5,000,000</option>
+                        <option value="Place 6" data-price="6000000">Place 6 - Rp 6,000,000</option>
+                        <option value="Place 7" data-price="7000000">Place 7 - Rp 7,000,000</option>
+                        <option value="Place 8" data-price="8000000">Place 8 - Rp 8,000,000</option>
+                    </select>
+                </div>
             </div>
 
             <div class="inputBox">

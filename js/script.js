@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
 document.addEventListener("DOMContentLoaded", function() {
     const loginPopup = document.getElementById('login-popup');
     const signupPopup = document.getElementById('signup-popup');
@@ -113,23 +112,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Event listener for login form submission
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        const formData = new FormData(loginForm);
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'login.php', true);
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                if (response.success) {
-                    window.location.href = 'index.php';
-                } else {
-                    loginError.textContent = response.message;
-                }
-            } else {
-                loginError.textContent = 'Error logging in. Please try again.';
-            }
-        };
-        xhr.send(formData);
+        loginUser();
     });
 
     // Event listener for signup form submission
@@ -154,4 +137,103 @@ document.addEventListener("DOMContentLoaded", function() {
         };
         xhr.send(formData);
     });
+});
+
+// Function to handle user login
+function loginUser() {
+    event.preventDefault(); // Prevent form submission
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'login.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.status === 'success') {
+                window.location.href = 'profile.php'; // Redirect to profile page on successful login
+            } else {
+                document.getElementById('login-error').textContent = response.message; // Display error message
+            }
+        } else {
+            console.error('Request failed. Status: ' + xhr.status);
+        }
+    };
+
+    xhr.onerror = function () {
+        console.error('Request failed. Check your connection.');
+    };
+
+    var formData = 'username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
+    xhr.send(formData);
+
+    return false; // Prevent default form submission
+}
+
+// script.js
+
+function signupUser() {
+    event.preventDefault(); // Prevent form submission
+    var fullname = document.getElementById('fullname').value;
+    var email = document.getElementById('email').value;
+    var username = document.getElementById('signup-username').value;
+    var password = document.getElementById('signup-password').value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'signup.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.status === 'success') {
+                window.location.href = 'user_profile.php'; // Redirect to profile page on successful signup
+            } else {
+                // Handle error scenario if needed
+                console.log(response.message);
+            }
+        } else {
+            console.error('Request failed. Status: ' + xhr.status);
+        }
+    };
+
+    xhr.onerror = function () {
+        console.error('Request failed. Check your connection.');
+    };
+
+    var formData = 'fullname=' + encodeURIComponent(fullname) + '&email=' + encodeURIComponent(email) +
+                   '&username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
+    xhr.send(formData);
+
+    return false; // Prevent default form submission
+}
+
+
+function updatePrice() {
+    const locationSelect = document.getElementById('location');
+    const selectedOption = locationSelect.options[locationSelect.selectedIndex];
+    const price = selectedOption.getAttribute('data-price');
+    document.getElementById('location-price').innerText = selectedOption.text + ' - Rp ' + parseInt(price).toLocaleString('id-ID');
+}
+
+
+// Ambil elemen logout-btn dan tambahkan event listener
+document.getElementById('logout-btn').addEventListener('click', function() {
+    // Simulasi aksi logout
+    // Misalnya, menghapus token atau data sesi
+    alert('Logged out successfully');
+    // Redirect atau lakukan aksi logout lainnya sesuai kebutuhan
+});
+
+// Optional: Tambahkan event listener untuk menutup dropdown saat klik di luar dropdown
+window.addEventListener('click', function(event) {
+    var dropdownContent = document.getElementById('dropdown-content');
+    var profileBtn = document.getElementById('profile-btn');
+    if (!event.target.matches('.profile-btn')) {
+        dropdownContent.style.display = 'none';
+    } else {
+        dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+    }
 });

@@ -203,12 +203,13 @@
 <!-- home offer section end -->
 
 <!-- login popup -->
+<!-- Login popup -->
 <div id="login-popup" class="login-popup">
     <span class="close-btn">&times;</span>
     <h2>Login</h2>
-    <form id="login-form">
-        <input type="text" name="username" placeholder="Username" required autocomplete="username">
-        <input type="password" name="password" placeholder="Password" required autocomplete="current-password">
+    <form id="login-form" onsubmit="return loginUser()">
+        <input type="text" name="username" id="username" placeholder="Username" required autocomplete="username">
+        <input type="password" name="password" id="password" placeholder="Password" required autocomplete="current-password">
         <input type="submit" value="Login">
     </form>
     <p id="login-error" style="color:red;"></p>
@@ -219,14 +220,15 @@
 <div id="signup-popup" class="signup-popup">
     <span class="close-btn">&times;</span>
     <h2>Signup</h2>
-    <form id="signup-form">
-        <input type="text" name="fullname" placeholder="Full Name" required autocomplete="on">
-        <input type="email" name="email" placeholder="Email" required autocomplete="on">
-        <input type="text" name="username" placeholder="Username" required autocomplete="on">
-        <input type="password" name="password" placeholder="Password" required autocomplete="on">
+    <form id="signup-form" onsubmit="return signupUser()">
+        <input type="text" name="fullname" id="fullname" placeholder="Full Name" required autocomplete="on">
+        <input type="email" name="email" id="email" placeholder="Email" required autocomplete="on">
+        <input type="text" name="username" id="signup-username" placeholder="Username" required autocomplete="on">
+        <input type="password" name="password" id="signup-password" placeholder="Password" required autocomplete="on">
         <input type="submit" value="Signup">
     </form>
 </div>
+
 
 <!-- Overlay -->
 <div id="overlay" class="overlay"></div>

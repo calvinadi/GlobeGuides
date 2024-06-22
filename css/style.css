@@ -438,6 +438,38 @@ section{
     margin-top: 2rem;
 }
 
+.booking .book-form .flex .inputBox select {
+    width: 100%;
+    padding: 1.2rem 1.4rem; /* Sesuaikan padding sesuai kebutuhan */
+    font-size: 1.6rem; /* Sesuaikan ukuran font sesuai kebutuhan */
+    color: var(--light-black);
+    text-transform: none;
+    margin-top: 1.5rem;
+    border: var(--border);
+    background-color: white; /* Atur warna latar belakang sesuai kebutuhan */
+    appearance: none; /* Hilangkan gaya bawaan untuk tampilan kustom */
+    cursor: pointer; /* Tambahkan kursor pointer */
+}
+
+.booking .book-form .flex .inputBox select:focus {
+    background: var(--black);
+    color: var(--white);
+}
+
+.booking .book-form .flex .inputBox select option {
+    padding: 1rem; /* Sesuaikan padding pilihan dropdown sesuai kebutuhan */
+}
+
+.booking .book-form .flex .inputBox select:focus::placeholder {
+    background: var(--black);
+    color: var(--light-white);
+}
+
+.booking .book-form .flex .inputBox select span {
+    font-size: 1.5rem;
+    color: var(--light-black);
+}
+
 .login-popup {
     display: none;
     position: fixed;
@@ -663,6 +695,60 @@ section{
     line-height: 2;
     padding: 1rem 0;
 }
+
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown button */
+.profile-btn {
+    background-color: transparent;
+    color: #333;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Position dropdown button and dropdown content */
+.profile-btn {
+    float: right;
+}
+
+.dropdown-content {
+    right: 0;
+    top: 60px; /* Adjust position as needed */
+}
+
 
 
 

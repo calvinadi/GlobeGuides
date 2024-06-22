@@ -1,75 +1,44 @@
 <?php
 session_start();
+require_once('db_connect.php');
 
-// Koneksi ke basis data
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "globe_guides";
+$response = array();
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Periksa koneksi
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
-}
-
-// Tangani data dari form login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user = $_POST['username'];
-    $pass = $_POST['password'];
+    $username = mysqli_real_escape_string($connection, $_POST['username']);
+    $password = mysqli_real_escape_string($connection, $_POST['password']);
 
-    // Mencegah SQL Injection
-    $user = mysqli_real_escape_string($conn, $user);
-    $pass = mysqli_real_escape_string($conn, $pass);
+    $sql = "SELECT * FROM users WHERE username = '$username'";
+    $result = mysqli_query($connection, $sql);
 
-    // Periksa apakah pengguna ada di basis data
-    $sql = "SELECT * FROM users WHERE username = '$user'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        // Ambil data pengguna
-        $row = $result->fetch_assoc();
-        // Verifikasi kata sandi
-        if (password_verify($pass, $row['password'])) {
-            // Set session dan arahkan ke halaman beranda
-            $_SESSION['username'] = $user;
-            header("Location: home.php");
-            exit();
+    if ($result) {
+        if (mysqli_num_rows($result) == 1) {
+            $row = mysqli_fetch_assoc($result);
+            if (password_verify($password, $row['password'])) {
+                $_SESSION['user_id'] = $row['user_id']; // Store user_id in session
+                $_SESSION['username'] = $username;
+                $response['status'] = 'success';
+                echo json_encode($response);
+                exit();
+            } else {
+                $response['status'] = 'error';
+                $response['message'] = 'Invalid password';
+                echo json_encode($response);
+                exit();
+            }
         } else {
-            // Jika kata sandi salah
-            $error = "Kata sandi salah.";
+            $response['status'] = 'error';
+            $response['message'] = 'User not found';
+            echo json_encode($response);
+            exit();
         }
     } else {
-        // Jika pengguna tidak ditemukan
-        $error = "Pengguna tidak ditemukan.";
+        $response['status'] = 'error';
+        $response['message'] = 'Database error: ' . mysqli_error($connection);
+        echo json_encode($response);
+        exit();
     }
 }
 
-$conn->close();
+mysqli_close($connection);
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - GlobeGuides</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <?php
-        if (isset($error)) {
-            echo "<p style='color:red;'>$error</p>";
-        }
-        ?>
-        <form action="login.php" method="post">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Login">
-        </form>
-    </div>
-</body>
-</html>
