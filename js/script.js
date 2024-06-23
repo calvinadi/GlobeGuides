@@ -51,166 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    const loginPopup = document.getElementById('login-popup');
-    const signupPopup = document.getElementById('signup-popup');
-    const overlay = document.getElementById('overlay');
-    const loginForm = document.getElementById('login-form');
-    const signupForm = document.getElementById('signup-form');
-    const loginError = document.getElementById('login-error');
-    const closeBtns = document.querySelectorAll('.close-btn');
-    const loginLink = document.getElementById('login-link');
-    const signupLink = document.getElementById('signup-link'); // Update: added signup link
-    const signupBtn = document.getElementById('signup-btn'); // Update: added signup button inside login popup
-
-    // Function to show login popup
-    function showLoginPopup() {
-        loginPopup.style.display = 'block';
-        overlay.style.display = 'block';
-    }
-
-    // Function to show signup popup
-    function showSignupPopup() {
-        signupPopup.style.display = 'block';
-        overlay.style.display = 'block';
-    }
-
-    // Function to close popup and overlay
-    function closePopup() {
-        loginPopup.style.display = 'none';
-        signupPopup.style.display = 'none';
-        overlay.style.display = 'none';
-        loginError.textContent = '';  // Clear error message
-    }
-
-    // Event listener for login link
-    loginLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        showLoginPopup();
-    });
-
-    // Event listener for signup link
-    signupLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        showSignupPopup();
-    });
-
-    // Event listener for signup button inside login popup
-    signupBtn.addEventListener('click', function(event) {
-        event.preventDefault();
-        closePopup(); // Close login popup
-        showSignupPopup(); // Show signup popup
-    });
-
-    // Event listeners for close buttons
-    closeBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            closePopup();
-        });
-    });
-
-    // Event listener for login form submission
-    loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        loginUser();
-    });
-
-    // Event listener for signup form submission
-    signupForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const formData = new FormData(signupForm);
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'signup.php', true);
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                if (response.success) {
-                    window.location.href = 'index.php'; // Redirect after successful signup
-                } else {
-                    // Handle signup error
-                    console.error('Error signing up:', response.message);
-                }
-            } else {
-                console.error('Error signing up. Please try again.');
-            }
-        };
-        xhr.send(formData);
-    });
-});
-
-// Function to handle user login
-function loginUser() {
-    event.preventDefault(); // Prevent form submission
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'login.php', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            if (response.status === 'success') {
-                window.location.href = 'profile.php'; // Redirect to profile page on successful login
-            } else {
-                document.getElementById('login-error').textContent = response.message; // Display error message
-            }
-        } else {
-            console.error('Request failed. Status: ' + xhr.status);
-        }
-    };
-
-    xhr.onerror = function () {
-        console.error('Request failed. Check your connection.');
-    };
-
-    var formData = 'username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
-    xhr.send(formData);
-
-    return false; // Prevent default form submission
-}
-
-// script.js
-
-function signupUser() {
-    event.preventDefault(); // Prevent form submission
-    var fullname = document.getElementById('fullname').value;
-    var email = document.getElementById('email').value;
-    var username = document.getElementById('signup-username').value;
-    var password = document.getElementById('signup-password').value;
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'signup.php', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            if (response.status === 'success') {
-                window.location.href = 'user_profile.php'; // Redirect to profile page on successful signup
-            } else {
-                // Handle error scenario if needed
-                console.log(response.message);
-            }
-        } else {
-            console.error('Request failed. Status: ' + xhr.status);
-        }
-    };
-
-    xhr.onerror = function () {
-        console.error('Request failed. Check your connection.');
-    };
-
-    var formData = 'fullname=' + encodeURIComponent(fullname) + '&email=' + encodeURIComponent(email) +
-                   '&username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
-    xhr.send(formData);
-
-    return false; // Prevent default form submission
-}
-
-
 function updatePrice() {
     const locationSelect = document.getElementById('location');
     const selectedOption = locationSelect.options[locationSelect.selectedIndex];
@@ -219,21 +59,101 @@ function updatePrice() {
 }
 
 
-// Ambil elemen logout-btn dan tambahkan event listener
-document.getElementById('logout-btn').addEventListener('click', function() {
-    // Simulasi aksi logout
-    // Misalnya, menghapus token atau data sesi
-    alert('Logged out successfully');
-    // Redirect atau lakukan aksi logout lainnya sesuai kebutuhan
+//Popup signup and login
+document.addEventListener('DOMContentLoaded', function() {
+    const loginPopup = document.getElementById('login-popup');
+    const signupPopup = document.getElementById('signup-popup');
+    const loginLink = document.getElementById('login-link');
+    const signupLink = document.getElementById('signup-link');
+    const closeBtns = document.getElementsByClassName('close');
+
+    // Function to show login popup
+    function showLoginPopup() {
+        loginPopup.style.display = 'block';
+    }
+
+    // Function to show signup popup
+    function showSignupPopup() {
+        signupPopup.style.display = 'block';
+    }
+
+    // Function to close popups
+    function closePopups() {
+        loginPopup.style.display = 'none';
+        signupPopup.style.display = 'none';
+    }
+
+    // Event listeners
+    loginLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        showLoginPopup();
+    });
+
+    signupLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        showSignupPopup();
+    });
+
+    // Close button functionality
+    for (let i = 0; i < closeBtns.length; i++) {
+        closeBtns[i].addEventListener('click', closePopups);
+    }
+
+    // Close popup when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target == loginPopup || e.target == signupPopup) {
+            closePopups();
+        }
+    });
+
+    // Switch between login and signup
+    document.getElementById('signup-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        loginPopup.style.display = 'none';
+        signupPopup.style.display = 'block';
+    });
+
+    document.getElementById('login-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        signupPopup.style.display = 'none';
+        loginPopup.style.display = 'block';
+    });
 });
 
-// Optional: Tambahkan event listener untuk menutup dropdown saat klik di luar dropdown
-window.addEventListener('click', function(event) {
-    var dropdownContent = document.getElementById('dropdown-content');
-    var profileBtn = document.getElementById('profile-btn');
-    if (!event.target.matches('.profile-btn')) {
-        dropdownContent.style.display = 'none';
-    } else {
-        dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
-    }
+
+document.getElementById('signup-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Ambil data dari form
+    const username = this.querySelector('input[type="text"]').value;
+    const email = this.querySelector('input[type="email"]').value;
+    const password = this.querySelector('input[type="password"]').value;
+
+    // Kirim data ke server menggunakan fetch API
+    fetch('signup_process.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: username,
+            email: email,
+            password: password
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Jika signup berhasil, arahkan ke halaman profil
+            window.location.href = 'user_profile.php';
+        } else {
+            // Jika ada error, tampilkan pesan error
+            alert(data.message);
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Terjadi kesalahan saat mendaftar. Silakan coba lagi.');
+    });
 });
+
