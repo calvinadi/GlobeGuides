@@ -126,20 +126,22 @@
 <!-- home about section start -->
 
 <section class="home-about">
-    <div class="image">
-        <img src="images/about-img.jpg" alt="">
+    <div class="row">
+        <div class="image">
+            <img src="images/about-img.jpg" alt="">
+        </div>
+        <div class="content">
+            <h3>Why Choose Us?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Odit sapiente accusamus atque! Maxime animi, 
+                debitis perspiciatis minus beatae dicta repellat tempora dolorem dolor at, 
+                libero quam sequi repellendus recusandae aut.
+            </p>
+            <div class="btn-container">
+                <a href="about.php" class="btn">read more</a>
+            </div>
+        </div>
     </div>
-
-    <div class="content">
-        <h3>about us</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Odit sapiente accusamus atque! Maxime animi, 
-            debitis perspiciatis minus beatae dicta repellat tempora dolorem dolor at, 
-            libero quam sequi repellendus recusandae aut.
-        </p>
-        <a href="about.php" class="btn">read more</a>
-    </div>
-
 </section>
 
 <!-- home about section end -->
@@ -206,9 +208,6 @@
 <?php include 'login_popup.php'; ?>
 
 <?php include 'signup_popup.php'; ?>
-
-<!-- Include overlay -->
-<?php include 'overlay.php'; ?>
 
 <!--footer section  -->
 <?php include 'footer.php'; ?>
