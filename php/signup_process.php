@@ -1,11 +1,14 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
-header('Content-Type: application/json');
+ini_set('log_errors', 1);
+ini_set('error_log', '/path/to/error.log');
+
+ob_start(); // Start output buffering
 
 require_once 'db_connect.php';
 
-$response = ['success' => false, 'message' => 'An unknown error occurred']; // Default response
+$response = ['success' => false, 'message' => 'An unknown error occurred']; 
 
 try {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -34,17 +37,23 @@ try {
                 }
             }
         } else {
-            $response = ['success' => false, 'message' => 'Harap lengkapi semua kolom yang diperlukan'];
+            $response = ['success' => false, 'message' => 'Semua field harus diisi'];
         }
+    } else {
+        $response = ['success' => false, 'message' => 'Invalid request method'];
     }
 } catch (Exception $e) {
-    $response = ['success' => false, 'message' => 'Signup gagal: ' . $e->getMessage()];
+    error_log('Signup error: ' . $e->getMessage());
+    $response = ['success' => false, 'message' => 'Terjadi kesalahan internal'];
 }
 
-// Clear output buffer
-ob_clean();
+$output = ob_get_clean(); // Get the buffered content and clear the buffer
 
-// Send JSON response
+if (!empty($output)) {
+    error_log('Unexpected output in signup_process.php: ' . $output);
+}
+
+header('Content-Type: application/json');
 echo json_encode($response);
 exit;
 ?>

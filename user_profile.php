@@ -66,11 +66,11 @@
 <!-- Footer section -->
 <?php include 'footer.php'; ?>
 
-    <!-- Swiper JS link -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Swiper JS link -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Custom JS file link -->
-    <script src="js/script.js"></script>
+<!-- Custom JS file link -->
+<script src="js/script.js"></script>
 
 </body>
 </html>

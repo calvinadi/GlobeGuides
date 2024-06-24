@@ -135,15 +135,11 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: formData
         })
-        .then(response => response.text())
-        .then(text => {
-            console.log('Raw response:', text); // Untuk debugging
-            return JSON.parse(text);
-        })
+        .then(response => response.json())
         .then(data => {
             if (data.success) {
                 alert(data.message);
-                closePopups();
+                window.location.href = 'user_profile.php'; // Redirect ke halaman profil
             } else {
                 alert('Signup failed: ' + data.message);
             }
