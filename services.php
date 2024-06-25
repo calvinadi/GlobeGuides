@@ -147,9 +147,6 @@
 <?php include 'login_popup.php'; ?>
 <?php include 'signup_popup.php'; ?>
 
-<!-- Include overlay -->
-<?php include 'overlay.php'; ?>
-
 <!-- Footer section -->
 <?php include 'footer.php'; ?>
 

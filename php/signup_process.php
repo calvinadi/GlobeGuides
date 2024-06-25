@@ -4,8 +4,7 @@ ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 ini_set('error_log', '/path/to/error.log');
 
-ob_start(); // Start output buffering
-
+session_start();
 require_once 'db_connect.php';
 
 $response = ['success' => false, 'message' => 'An unknown error occurred']; 
@@ -19,18 +18,32 @@ try {
             $password = $_POST['password'];
             $confirmPassword = $_POST['confirm_password'];
 
+            // Check if passwords match
             if ($password !== $confirmPassword) {
                 $response = ['success' => false, 'message' => 'Password tidak cocok'];
             } else {
+                // Check if username or email already exists
                 $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username OR email = :email");
                 $stmt->execute(['username' => $username, 'email' => $email]);
+                
                 if ($stmt->rowCount() > 0) {
                     $response = ['success' => false, 'message' => 'Username atau email sudah terdaftar'];
                 } else {
+                    // Hash password
                     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+                    // Insert new user into database
                     $stmt = $pdo->prepare("INSERT INTO users (username, email, pwd) VALUES (:username, :email, :pwd)");
+                    
                     if ($stmt->execute(['username' => $username, 'email' => $email, 'pwd' => $hashedPassword])) {
-                        $response = ['success' => true, 'message' => 'Pendaftaran berhasil'];
+                        // Set session variables upon successful registration
+                        $user_id = $pdo->lastInsertId();
+                        $_SESSION['user_id'] = $user_id;
+                        $_SESSION['username'] = $username;
+
+                        // Redirect to user profile page
+                        header('Location: ../user_profile.php');
+                        exit; // Ensure no further execution
                     } else {
                         $response = ['success' => false, 'message' => 'Terjadi kesalahan saat mendaftar'];
                     }
@@ -47,13 +60,6 @@ try {
     $response = ['success' => false, 'message' => 'Terjadi kesalahan internal'];
 }
 
-$output = ob_get_clean(); // Get the buffered content and clear the buffer
-
-if (!empty($output)) {
-    error_log('Unexpected output in signup_process.php: ' . $output);
-}
-
+// Only send JSON response if we haven't redirected
 header('Content-Type: application/json');
 echo json_encode($response);
-exit;
-?>

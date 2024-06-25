@@ -111,9 +111,6 @@
 <?php include 'login_popup.php'; ?>
 <?php include 'signup_popup.php'; ?>
 
-<!-- Include overlay -->
-<?php include 'overlay.php'; ?>
-
 <!--swiper js link-->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
